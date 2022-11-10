@@ -1,4 +1,4 @@
-# pos64splitter
+# Vaporum Coin pos64splitter
 
 An automated staker for PoS assetchains. Please see https://docs.komodoplatform.com/komodo/assetchain-params.html#ac-staked for details on pos64 POS implementation. 
 
