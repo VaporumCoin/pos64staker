@@ -20,7 +20,7 @@ pip3 install base58 slick-bitcoinrpc
 
 ## How to Use
 
-The following examples will use CFEK. Replace CFEK with the chain you are using.
+The following examples will use VPRM. Replace VPRM with the chain you are using.
 
 `git clone https://github.com/StakedChain/pos64staker`
 
@@ -28,7 +28,7 @@ The following examples will use CFEK. Replace CFEK with the chain you are using.
 
 `./genaddresses.py`
 ```shell
-Please specify chain:CFEK
+Please specify chain:VPRM
 ```
 
 This will create a `list.json` file in the current directory. **THIS FILE CONTAINS PRIVATE KEYS. KEEP IT SAFE.**
@@ -38,7 +38,7 @@ Copy this file to the directory `komodod` is located.
 
 `./sendmany64.py`
 ```shell
-Please specify chain:CFEK
+Please specify chain:VPRM
 Balance: 1000000.77
 Please specify the size of UTXOs:10
 Please specify the amount of UTXOs to send to each segid:10
@@ -49,11 +49,11 @@ You now need to start the daemon with -blocknotify and -pubkey set.
 
 Fetch a pubkey from your `list.json` and place it in your start command. For example:
 
-`./komodod -ac_name=CFEK -ac_supply=1000000 -ac_reward=10000000000 -ac_cc=2 -ac_staked=50 -addnode=195.201.20.230 -addnode=195.201.137.5  -pubkey=0367e6b61a60f9fe6748c27f40d0afe1681ec2cc125be51d47dad35955fab3ba3b '-blocknotify=/home/<USER>/pos64staker/staker.py %s CFEK'`
+`./komodod -ac_name=VPRM -ac_supply=0 -ac_eras=6 -ac_blocktime=30 -ac_reward=5000000000,2500000000,1250000000,625000000,312500000,156250000 -ac_end=1000000,3500000,8500000,18500000,38500000,166500000 -ac_staked=50 -ac_sapling=1 -ac_cbmaturity=1 -ac_cc=0 -addnode=68.3.67.21 -addnode=167.172.130.118 -addnode=157.230.90.81 '-blocknotify=/home/<USER>/pos64staker/staker.py %s VPRM'`
 
-NOTE the CFEK in -blocknotify make sure you change this to the correct chain name you are using also note the single quotes.
+NOTE the VPRM in -blocknotify make sure you change this to the correct chain name you are using also note the single quotes.
 
-After the daemon has started and is synced simply do `komodo-cli -ac_name=CFEK setgenerate true 0` to begin staking. 
+After the daemon has started and is synced simply do `komodo-cli -ac_name=VPRM setgenerate true 0` to begin staking. 
 
 
 ### How the staker.py works
